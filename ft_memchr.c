@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, site_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
 	unsigned char	*ptr;
 	unsigned char	cs;
@@ -23,7 +23,7 @@ void	*ft_memchr(const void *s, int c, site_t n)
 	i = 0;
 	while (i < n)
 	{
-		if (*(prt + i) == cs)
+		if (*(ptr + i) == cs)
 		{
 			return (ptr + i);
 		}

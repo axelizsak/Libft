@@ -6,7 +6,7 @@
 /*   By: aizsak <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 11:49:18 by aizsak            #+#    #+#             */
-/*   Updated: 2022/11/07 15:15:50 by aizsak           ###   ########.fr       */
+/*   Updated: 2022/11/07 18:39:15 by aizsak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	ft_putstr_fd(char *s, int fd);
 char	**ft_split(const char *s, char c);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *s1);
+void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 char	*ft_strjoin(const char *s1, const char *s2);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
