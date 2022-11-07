@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aizsak <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/07 11:48:15 by aizsak            #+#    #+#             */
+/*   Updated: 2022/11/07 11:48:19 by aizsak           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static int	ischar(char c, const char *set)
@@ -37,7 +49,7 @@ char	*ft_strtrim(const char *s1, const char *set)
 	size_t	k;
 	size_t	len;
 	char	*dst;
-	
+
 	if (s1 == NULL)
 		return (NULL);
 	i = 0;

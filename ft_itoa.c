@@ -1,50 +1,58 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aizsak <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/07 11:41:58 by aizsak            #+#    #+#             */
+/*   Updated: 2022/11/07 15:54:26 by aizsak           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-static int	ft_nbrlen(long n)
+int	ft_numlen(long n)
 {
-	int		i;
+	int	res;
 
-	i = 1;
-	if (n < 0)
+	res = 0;
+	if (n <= 0)
 	{
-		n *= -1;
-		i++;
+		res++;
+		n = -n;
 	}
-	while (n > 9)
+	while (n > 0)
 	{
-		n /= 10;
-		i++;
+		n = n / 10;
+		res++;
 	}
-	return (i);
-}
-
-static void	ft_putnbr_stock(long n, char *str, int *i)
-{
-	if (n > 9)
-	{
-		ft_putnbr_stock(n / 10, str, i);
-		ft_putnbr_stock(n % 10, str, i);
-	}
-	else
-		str[(*i)++] = n + '0';
+	return (res);
 }
 
 char	*ft_itoa(int n)
 {
-	char	*str;
-	int		i;
-	long	nbr;
+	char	*tab;
+	int		len;
+	long	nb;
 
-	nbr = n;
-	if ((str = malloc(sizeof(char) * (ft_nbrlen(nbr) + 1))) == NULL)
+	nb = n;
+	len = ft_numlen(nb);
+	tab = malloc(len + 1);
+	if (!tab)
 		return (NULL);
-	i = 0;
-	if (nbr < 0)
+	tab[len--] = 0;
+	if (nb == 0)
+		tab[0] = '0';
+	if (nb < 0)
 	{
-		str[i++] = '-';
-		nbr *= -1;
+		tab[0] = '-';
+		nb *= -1;
 	}
-	ft_putnbr_stock(nbr, str, &i);
-	str[i] = '\0';
-	return (str);
+	while (nb > 0)
+	{
+		tab[len--] = 48 + (nb % 10);
+		nb = nb / 10;
+	}
+	return (tab);
 }

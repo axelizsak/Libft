@@ -1,25 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_slipt.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aizsak <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/07 11:44:15 by aizsak            #+#    #+#             */
+/*   Updated: 2022/11/07 14:21:46 by aizsak           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static int	char_is_separator(char c, char sep)
 {
 	int	i;
 
-	i  = 0;
+	i = 0;
 	if (c == sep || c == '\0')
 		return (1);
 	return (0);
-	}
+}
 
 static int	count_words(char *str, char sep)
 {
 	int	i;
 	int	words;
-
+:
 	words = 0;
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (char_is_separator(str[i + 1], sep) == 1
+		if (char_is_separator(str[i + 1], sep) == 1 
 				&& char_is_separator(str[i], sep) == 0)
 			words++;
 		i++;
@@ -57,7 +69,7 @@ static void	*write_split(char **split, char *str, char sep)
 			j = 0;
 			while (char_is_separator(str[i + j], sep) == 0)
 				j++;
-			if ((split[word] = (char*)malloc(sizeof(char) * (j + 1))) == NULL)
+			if ((split[word] = (char *)malloc(sizeof(char) * (j + 1))) == NULL)
 			{
 				while (word > 0)
 					free(split[--word]);
@@ -68,7 +80,7 @@ static void	*write_split(char **split, char *str, char sep)
 			word++;
 		}
 	}
-	return ((void*)1);
+	return ((void *)1);
 }
 
 char		**ft_split(const char *s, char c)
@@ -79,9 +91,9 @@ char		**ft_split(const char *s, char c)
 
 	if (s == NULL)
 		return (NULL);
-	str = (char*)s;
+	str = (char *)s;
 	words = count_words(str, c);
-	if ((res = (char**)malloc(sizeof(char*) * (words + 1))) == NULL)
+	if ((res = (char **)malloc(sizeof(char *) * (words + 1))) == NULL)
 		return (NULL);
 	res[words] = 0;
 	if (write_split(res, str, c) == NULL)
