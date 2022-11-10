@@ -6,18 +6,21 @@
 /*   By: aizsak <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 11:46:06 by aizsak            #+#    #+#             */
-/*   Updated: 2022/11/07 11:46:10 by aizsak           ###   ########.fr       */
+/*   Updated: 2022/11/10 21:20:35 by aizsak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(char *s)
+int	ft_strlen(char const *s)
 {
 	int	i;
 
 	i = 0;
 	while (*s)
+	{
+		s++;
 		i++;
+	}
 	return (i);
 }

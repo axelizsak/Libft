@@ -6,7 +6,7 @@
 /*   By: aizsak <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 11:48:15 by aizsak            #+#    #+#             */
-/*   Updated: 2022/11/07 11:48:19 by aizsak           ###   ########.fr       */
+/*   Updated: 2022/11/10 20:21:38 by aizsak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,12 @@ static int	ischar(char c, const char *set)
 	size_t	i;
 
 	i = 0;
-	while (*(set + i))
-		if ((*set + i++) == c)
+	while (set[i])
+	{
+		if (set[i] == c)
 			return (1);
+		i++;
+	}
 	return (0);
 }
 

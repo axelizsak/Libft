@@ -6,7 +6,7 @@
 /*   By: aizsak <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 11:49:18 by aizsak            #+#    #+#             */
-/*   Updated: 2022/11/07 18:39:15 by aizsak           ###   ########.fr       */
+/*   Updated: 2022/11/10 20:19:18 by aizsak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 char	*ft_strjoin(const char *s1, const char *s2);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
-int		ft_strlen(char *s);
+int		ft_strlen(char const *s);
 char	*ft_strmapi(const char *s, char (*f)(unsigned int, char ));
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);

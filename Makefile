@@ -6,7 +6,7 @@
 #    By: aizsak <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/07 11:49:45 by aizsak            #+#    #+#              #
-#    Updated: 2022/11/07 18:39:50 by aizsak           ###   ########.fr        #
+#    Updated: 2022/11/10 19:17:35 by aizsak           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,9 +27,6 @@ RN			= ranlib
 
 CFLAGS		= -Wall -Wextra -Werror
 
-.c.o:
-			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
-
 $(NAME):	${OBJS}
 			${AR} ${NAME} ${OBJS}
 			${RN} ${NAME}
@@ -42,6 +39,6 @@ clean:
 fclean:		clean
 			${RM} $(NAME)
 
-re:			fclean all
+re:		fclean all
 
 .PHONY:		all clean fclean re

@@ -6,7 +6,7 @@
 /*   By: aizsak <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 11:42:47 by aizsak            #+#    #+#             */
-/*   Updated: 2022/11/07 11:42:51 by aizsak           ###   ########.fr       */
+/*   Updated: 2022/11/10 21:17:11 by aizsak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	if (s < d)
 	{
 		while (n--)
-			*(d + n) = *(s + n);
+			d[n] = s[n];
 		return (dest);
 	}
 	while (n--)
