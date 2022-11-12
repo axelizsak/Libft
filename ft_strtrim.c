@@ -6,13 +6,13 @@
 /*   By: aizsak <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 11:48:15 by aizsak            #+#    #+#             */
-/*   Updated: 2022/11/10 20:21:38 by aizsak           ###   ########.fr       */
+/*   Updated: 2022/11/12 10:11:07 by aizsak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ischar(char c, const char *set)
+static int	iz_char(char c, const char *set)
 {
 	size_t	i;
 
@@ -26,7 +26,7 @@ static int	ischar(char c, const char *set)
 	return (0);
 }
 
-static char	*trimming(const char *s1, const char *set, size_t *k, size_t i)
+static char	*trim(const char *s1, const char *set, size_t *k, size_t i)
 {
 	size_t	j;
 	size_t	len;
@@ -34,9 +34,10 @@ static char	*trimming(const char *s1, const char *set, size_t *k, size_t i)
 
 	len = ft_strlen(s1);
 	j = 0;
-	while (ischar(*(s1 + len - j - 1), set))
+	while (iz_char(*(s1 + len - j - 1), set))
 		j++;
-	if ((dst = ft_calloc(sizeof(char), len - (j + i) + 1)) == NULL)
+	dst = ft_calloc(sizeof(char), len - (j + i) + 1);
+	if (dst == NULL)
 		return (NULL);
 	while (*k < len - (j + i))
 	{
@@ -46,7 +47,7 @@ static char	*trimming(const char *s1, const char *set, size_t *k, size_t i)
 	return (dst);
 }
 
-char	*ft_strtrim(const char *s1, const char *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	i;
 	size_t	k;
@@ -57,13 +58,13 @@ char	*ft_strtrim(const char *s1, const char *set)
 		return (NULL);
 	i = 0;
 	len = ft_strlen(s1);
-	while (ischar(*(s1 + i), set))
+	while (iz_char(*(s1 + i), set))
 		i++;
 	k = 0;
 	if (i == len)
 		dst = malloc(1);
 	else
-		dst = trimming(s1, set, &k, i);
+		dst = trim(s1, set, &k, i);
 	if (dst != NULL)
 		*(dst + k) = '\0';
 	return (dst);

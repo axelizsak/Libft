@@ -6,24 +6,22 @@
 /*   By: aizsak <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 11:38:11 by aizsak            #+#    #+#             */
-/*   Updated: 2022/11/07 11:38:20 by aizsak           ###   ########.fr       */
+/*   Updated: 2022/11/12 09:44:27 by aizsak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	size_t	total;
 	char	*mem;
 	size_t	i;
 
-	total = count * size;
-	mem = malloc(total);
-	if (mem == NULL)
+	mem = malloc(nmemb * size);
+	if (mem == NULL || (nmemb * size) / nmemb != size)
 		return (NULL);
 	i = 0;
-	while (i < total)
+	while (i < nmemb * size)
 	{
 		mem[i] = 0;
 		i++;

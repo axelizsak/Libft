@@ -6,7 +6,7 @@
 /*   By: aizsak <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 11:42:07 by aizsak            #+#    #+#             */
-/*   Updated: 2022/11/07 11:42:10 by aizsak           ###   ########.fr       */
+/*   Updated: 2022/11/11 14:15:42 by aizsak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,8 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		if (*(ptr + i) == cs)
-		{
+		if (ptr[i] == cs)
 			return (ptr + i);
-		}
 		i++;
 	}
 	return (0);

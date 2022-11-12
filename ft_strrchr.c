@@ -6,7 +6,7 @@
 /*   By: aizsak <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 11:47:59 by aizsak            #+#    #+#             */
-/*   Updated: 2022/11/07 11:48:01 by aizsak           ###   ########.fr       */
+/*   Updated: 2022/11/11 17:20:24 by aizsak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char	*ptr;
-	char	*ptr2;
+	char	*p1;
+	char	*p2;
 	int		i;
 
-	ptr = (char *)s;
-	ptr2 = 0;
+	p1 = (char *)s;
+	p2 = 0;
 	i = 0;
-	while (*(ptr + i))
+	while (p1[i])
 	{
-		if (*(ptr + i) == c)
-			ptr2 = ptr + i;
+		if (p1[i] == (char)c)
+			p2 = p1 + i;
 		i++;
 	}
 	if (c == '\0')
-		return (ptr + i);
-	return (ptr2);
+		return (p1 + i);
+	return (p2);
 }

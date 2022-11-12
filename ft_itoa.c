@@ -6,28 +6,28 @@
 /*   By: aizsak <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 11:41:58 by aizsak            #+#    #+#             */
-/*   Updated: 2022/11/07 15:54:26 by aizsak           ###   ########.fr       */
+/*   Updated: 2022/11/11 14:09:03 by aizsak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_numlen(long n)
+int	ft_intlen(long n)
 {
-	int	res;
+	int	i;
 
-	res = 0;
+	i = 0;
 	if (n <= 0)
 	{
-		res++;
+		i++;
 		n = -n;
 	}
 	while (n > 0)
 	{
 		n = n / 10;
-		res++;
+		i++;
 	}
-	return (res);
+	return (i);
 }
 
 char	*ft_itoa(int n)
@@ -37,7 +37,7 @@ char	*ft_itoa(int n)
 	long	nb;
 
 	nb = n;
-	len = ft_numlen(nb);
+	len = ft_intlen(nb);
 	tab = malloc(len + 1);
 	if (!tab)
 		return (NULL);
