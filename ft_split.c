@@ -12,70 +12,104 @@
 
 #include "libft.h"
 
-static int	ft_count_words(char const *s, char c)
+static int	word_count(const char *str, char charset)
 {
-	int	n;
 	int	i;
+	int	count;
 
 	i = 0;
-	n = 0;
-	while (s[i])
+	count = 1;
+	while (str[i] != '\0')
 	{
-		while (s[i] && s[i] == c)
+		while (str[i] != '\0' && (str[i] == charset))
 			i++;
-		if (s[i] && s[i] != c)
-			n++;
-		while (s[i] && s[i] != c)
+		if (str[i] != '\0')
+			count++;
+		while (str[i] != '\0' && (str[i] != charset))
 			i++;
 	}
-	return (n);
+	return (count);
 }
 
-static char	*ft_make_word(char const *s, char c)
+static void	free_all(char **tab, int i)
 {
-	char	*word;
+	while (i > 0)
+	{
+		free(tab[i]);
+		i--;
+	}
+	free(tab);
+	return ;
+}
+
+
+static void	attribute_word(const char *str, char set, char **tab, int l)
+{
 	int		i;
+	int		j;
+	int		len;
 
 	i = 0;
-	while (s[i] && s[i] != c)
-		i++;
-	word = malloc (i + 1);
-	if (!word)
-		return (NULL);
-	i = 0;
-	while (s[i] && s[i] != c)
+	j = 0;
+	while (str[i] != '\0')
 	{
-		word[i] = s[i];
-		i++;
+		len = 0;
+		while (str[i] && str[i] == set)
+			i++;
+		while (str[i] && str[i] != set)
+		{
+			i++;
+			len++;
+		}
+		if (j < l)
+		{
+			tab[j] = malloc(sizeof(char) * (len + 1));
+			if (!(tab))
+				free_all(tab, j - 1);
+			j++;
+		}
 	}
-	word[i] = 0;
-	return (word);
 }
+
+static void	word_write(const char *str, char set, char **tab, int l)
+{
+	int	i;
+	int	j;
+	int	k;
+
+	i = 0;
+	j = 0;
+	while (str[i] != '\0')
+	{
+		k = 0;
+		while (str[i] && str[i] == set)
+			i++;
+		while (str[i] && str[i] != set)
+		{
+			tab[j][k] = str[i];
+			k++;
+			i++;
+		}
+		if (j < l)
+		{
+			tab[j][k] = 0;
+			j++;
+		}
+	}
+	tab[j] = 0;
+}
+
 
 char	**ft_split(char const *s, char c)
 {
 	char	**tab;
-	int		wlen;
-	int		i;
+	int		len;
 
-	wlen = ft_count_words(s, c);
-	tab = malloc(sizeof(char *) * (wlen + 1));
+	len = word_count(s, c);
+	tab = malloc(sizeof(char *) * len);
 	if (!tab)
 		return (NULL);
-	i = 0;
-	while (*s && i < wlen)
-	{
-		while (*s && *s == c)
-			s++;
-		if (*s && *s != c)
-		{
-			tab[i] = ft_make_word(s, c);
-			s = s + ft_strlen(tab[i]);
-			i++;
-		}
-		while (*s && *s != c)
-			s++;
-	}
-	tab[i] = NULL;
+	attribute_word(s, c, tab, len - 1);
+	word_write(s, c, tab, len - 1);
 	return (tab);
 }
