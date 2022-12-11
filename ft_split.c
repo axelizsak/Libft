@@ -6,7 +6,7 @@
 /*   By: aizsak <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 11:44:15 by aizsak            #+#    #+#             */
-/*   Updated: 2022/11/11 16:21:44 by aizsak           ###   ########.fr       */
+/*   Updated: 2022/11/19 09:38:52 by aizsak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ static void	free_all(char **tab, int i)
 	free(tab);
 	return ;
 }
-
 
 static void	attribute_word(const char *str, char set, char **tab, int l)
 {
@@ -98,7 +97,6 @@ static void	word_write(const char *str, char set, char **tab, int l)
 	}
 	tab[j] = 0;
 }
-
 
 char	**ft_split(char const *s, char c)
 {

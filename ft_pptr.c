@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_pptr.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aizsak <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 11:46:06 by aizsak            #+#    #+#             */
-/*   Updated: 2022/11/19 09:30:12 by aizsak           ###   ########.fr       */
+/*   Created: 2022/11/18 20:50:54 by aizsak            #+#    #+#             */
+/*   Updated: 2022/12/11 10:50:46 by aizsak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+unsigned long	ft_pptr(unsigned long n)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	while (*s)
+	if (n == 0)
+		i += ft_pstr ("(nil)");
+	else
 	{
-		s++;
-		i++;
+		i += ft_pstr("0x");
+		i += ft_phexa(n, 'x');
 	}
 	return (i);
 }
