@@ -6,13 +6,16 @@
 /*   By: aizsak <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 11:49:18 by aizsak            #+#    #+#             */
-/*   Updated: 2022/12/11 10:54:40 by aizsak           ###   ########.fr       */
+/*   Updated: 2022/12/11 12:28:05 by aizsak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 # include <stdlib.h>
 # include <unistd.h>
 # include <stddef.h>
@@ -76,4 +79,13 @@ int				ft_pnbr_unsigned(unsigned int n);
 
 unsigned long	ft_phexa(unsigned long n, const char type);
 unsigned long	ft_pptr(unsigned long n);
+
+char			*get_next_line(int fd);
+char			*ft_strjoin_gnl(char *reader, char *buff);
+char			*get_line(char *buff);
+char			*trimmed_buff(char *buff);
+char			*get_file(char *buff, int fd);
+int				ft_strlen1(char *str);
+int				ft_strlen2(char *str);
+int				check(char *str);
 #endif
